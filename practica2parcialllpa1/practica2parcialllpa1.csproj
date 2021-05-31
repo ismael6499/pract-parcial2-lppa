@@ -43,6 +43,12 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
@@ -88,19 +94,70 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Content\logo.jpg" />
+    <Content Include="Content\Site.css" />
     <Content Include="Global.asax" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Business\PedidoBiz.cs" />
+    <Compile Include="Business\PochocloBiz.cs" />
+    <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\PedidoController.cs" />
+    <Compile Include="Controllers\PochocloController.cs" />
+    <Compile Include="Data\BaseDataService.cs" />
+    <Compile Include="Data\CustomDbContext.cs" />
+    <Compile Include="Data\Entities\IdentityBase.cs" />
+    <Compile Include="Data\Entities\Pedido.cs" />
+    <Compile Include="Data\Entities\Pochoclo.cs" />
+    <Compile Include="Data\IDataService.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202105310135098_Initial.cs" />
+    <Compile Include="Migrations\202105310135098_Initial.designer.cs">
+      <DependentUpon>202105310135098_Initial.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202105310154311_Added Pedidos.cs" />
+    <Compile Include="Migrations\202105310154311_Added Pedidos.Designer.cs">
+      <DependentUpon>202105310154311_Added Pedidos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202105310210467_Added Pedidos2.cs" />
+    <Compile Include="Migrations\202105310210467_Added Pedidos2.Designer.cs">
+      <DependentUpon>202105310210467_Added Pedidos2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202105310214238_Added Pedidos3.cs" />
+    <Compile Include="Migrations\202105310214238_Added Pedidos3.Designer.cs">
+      <DependentUpon>202105310214238_Added Pedidos3.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202105310217005_Added Pedidos4.cs" />
+    <Compile Include="Migrations\202105310217005_Added Pedidos4.Designer.cs">
+      <DependentUpon>202105310217005_Added Pedidos4.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202105310218556_Added Pedidos5.cs" />
+    <Compile Include="Migrations\202105310218556_Added Pedidos5.Designer.cs">
+      <DependentUpon>202105310218556_Added Pedidos5.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\web.config" />
     <None Include="packages.config" />
+    <Content Include="Views\_ViewStart.cshtml" />
+    <Content Include="Views\Shared\_Layout.cshtml" />
+    <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\Pochoclo\Index.cshtml" />
+    <Content Include="Views\Pochoclo\Edit.cshtml" />
+    <Content Include="Views\Pochoclo\Delete.cshtml" />
+    <Content Include="Views\Pochoclo\Details.cshtml" />
+    <Content Include="Views\Pedido\Index.cshtml" />
+    <Content Include="Views\Pedido\Edit.cshtml" />
+    <Content Include="Views\Pedido\Delete.cshtml" />
+    <Content Include="Views\Pedido\Details.cshtml" />
+    <Content Include="Views\Pedido\Create.cshtml" />
+    <Content Include="Views\Pochoclo\Create.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -110,8 +167,27 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Controllers\" />
     <Folder Include="Models\" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\202105310135098_Initial.resx">
+      <DependentUpon>202105310135098_Initial.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202105310154311_Added Pedidos.resx">
+      <DependentUpon>202105310154311_Added Pedidos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202105310210467_Added Pedidos2.resx">
+      <DependentUpon>202105310210467_Added Pedidos2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202105310214238_Added Pedidos3.resx">
+      <DependentUpon>202105310214238_Added Pedidos3.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202105310217005_Added Pedidos4.resx">
+      <DependentUpon>202105310217005_Added Pedidos4.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202105310218556_Added Pedidos5.resx">
+      <DependentUpon>202105310218556_Added Pedidos5.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
